@@ -65,6 +65,20 @@
         .btn:hover {
             background-color: #e55b00;
         }
+        .whatsapp-btn {
+            background-color: #25D366; /* Cor do WhatsApp */
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 1.1em;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        .whatsapp-btn:hover {
+            background-color: #1EBE6F;
+        }
         .plans {
             padding: 50px 20px;
             text-align: center;
@@ -98,7 +112,7 @@
             font-size: 1.8em;
             color: #ff6b00;
         }
-        .plan .btn {
+        .plan .whatsapp-btn {
             margin-top: 20px;
         }
         .advantages, .faq, .testimonials {
@@ -123,7 +137,6 @@
             width: 100%;
             height: 100%;
             overflow: auto;
-            background-color: rgb(0,0,0);
             background-color: rgba(0,0,0,0.4);
             padding-top: 60px;
         }
@@ -134,6 +147,13 @@
             border: 1px solid #888;
             width: 80%;
             max-width: 600px;
+            text-align: center;
+        }
+        .modal-content img {
+            width: 100%;
+            height: auto;
+            border-radius: 10px;
+            margin-bottom: 20px;
         }
         .close {
             color: #aaa;
@@ -192,16 +212,16 @@
         <h1>IPTV de Qualidade</h1>
         <nav>
             <ul>
-                <li><a href="#">Home</a></li>
-                <li><a href="#">Planos</a></li>
-                <li><a href="#">Suporte</a></li>
-                <li><a href="#">Contato</a></li>
+                <li><a href="#hero">Home</a></li>
+                <li><a href="#plans">Planos</a></li>
+                <li><a href="#advantages">Suporte</a></li>
+                <li><a href="#faq">Contato</a></li>
             </ul>
         </nav>
     </header>
 
     <!-- Seção Principal (Hero Section) -->
-    <section class="hero">
+    <section id="hero" class="hero">
         <div>
             <h2>Assista seus canais favoritos com IPTV</h2>
             <p>Mais de 1000 canais em alta definição, sem cortes!</p>
@@ -210,117 +230,108 @@
     </section>
 
     <!-- Seção de Planos -->
-    <section class="plans">
+    <section id="plans" class="plans">
         <h2>Nossos Planos</h2>
         <div class="plans-container">
             <div class="plan">
-                <h3>Plano Mensal</h3>
+                <h3>Plano Mensal 📅</h3>
                 <p>Assista por 30 dias</p>
                 <p class="price">R$ 20,00</p>
-                <button class="btn" data-plan="Mensal" onclick="openModal(this)">Mais Detalhes</button>
+                <button class="btn" data-plan="Monthly">Mais Detalhes</button>
             </div>
             <div class="plan">
-                <h3>Plano Semestral</h3>
+                <h3>Plano Semestral 📆</h3>
                 <p>Assista por 6 meses</p>
                 <p class="price">R$ 100,00</p>
-                <button class="btn" data-plan="Semestral" onclick="openModal(this)">Mais Detalhes</button>
+                <button class="btn" data-plan="Semester">Mais Detalhes</button>
             </div>
             <div class="plan">
-                <h3>Plano Anual</h3>
+                <h3>Plano Anual 🗓️</h3>
                 <p>Assista por 1 ano</p>
                 <p class="price">R$ 180,00</p>
-                <button class="btn" data-plan="Anual" onclick="openModal(this)">Mais Detalhes</button>
+                <button class="btn" data-plan="Annual">Mais Detalhes</button>
             </div>
         </div>
     </section>
 
     <!-- Seção de Vantagens -->
-    <section class="advantages">
+    <section id="advantages" class="advantages">
         <h2>Por que Escolher IPTV?</h2>
         <p>Compatível com Smart TVs, celulares e computadores. Sem cortes, sem problemas. Mais de 1000 canais disponíveis para você e sua família.</p>
     </section>
 
     <!-- Seção de Perguntas Frequentes (FAQ) -->
-    <section class="faq">
+    <section id="faq" class="faq">
         <h2>Perguntas Frequentes</h2>
         <p><strong>O que é IPTV?</strong> IPTV é um sistema que transmite televisão pela internet.</p>
-        <p><strong>Como posso instalar?</strong> Após a assinatura, você recebe um tutorial detalhado para instalar em qualquer dispositivo.</p>
-        <p><strong>É legal?</strong> Sim, todos os nossos serviços são oferecidos dentro das normas.</p>
+        <p><strong>Como posso pagar?</strong> Aceitamos pagamentos via cartão de crédito, boleto e transferência bancária.</p>
     </section>
 
-    <!-- Depoimentos -->
-    <section class="testimonials">
-        <h2>O que nossos clientes dizem</h2>
-        <p>"Serviço incrível! Nunca mais tive problemas com travamentos durante o jogo do meu time!" - João S.</p>
-        <p>"Assisto filmes em HD sempre que quero. Super recomendo!" - Maria F.</p>
-    </section>
-
-    <!-- Formulário de Compra -->
-    <section class="purchase">
-        <h2>Faça sua Assinatura</h2>
-        <form id="purchaseForm" action="processar-compra.php" method="POST">
-            <label for="name">Nome Completo:</label>
-            <input type="text" id="name" name="name" required>
-            
-            <label for="email">E-mail:</label>
-            <input type="email" id="email" name="email" required>
-
-            <label for="plan">Escolha o Plano:</label>
-            <select id="plan" name="plan" required>
-                <option value="Mensal">Mensal</option>
-                <option value="Semestral">Semestral</option>
-                <option value="Anual">Anual</option>
-            </select>
-            
-            <label for="payment">Método de Pagamento:</label>
-            <select id="payment" name="payment" required>
-                <option value="Cartão de Crédito">Cartão de Crédito</option>
-                <option value="Boleto Bancário">Boleto Bancário</option>
-                <option value="Transferência Bancária">Transferência Bancária</option>
-            </select>
-            
-            <button type="submit" class="btn">Assinar Agora</button>
-        </form>
+    <!-- Seção de Depoimentos -->
+    <section id="testimonials" class="testimonials">
+        <h2>Depoimentos</h2>
+        <p><strong>João:</strong> "A melhor IPTV que já usei! Imagem excelente e muito conteúdo."</p>
+        <p><strong>Maria:</strong> "Muito satisfeito com o serviço. Recomendo a todos!"</p>
     </section>
 
     <!-- Rodapé -->
     <footer>
-        <p>&copy; 2024 IPTV - Todos os direitos reservados.</p>
+        <p>&copy; 2024 IPTV - Todos os direitos reservados</p>
     </footer>
 
-    <!-- Modal -->
-    <div id="planModal" class="modal">
+    <!-- Modais -->
+    <div id="modalMonthly" class="modal">
         <div class="modal-content">
-            <span class="close">&times;</span>
-            <h2 id="modalTitle">Detalhes do Plano</h2>
-            <p id="modalDescription">Aqui você pode adicionar mais informações sobre o plano selecionado.</p>
+            <span class="close" onclick="closeModal('modalMonthly')">&times;</span>
+            <h3>Plano Mensal 📅</h3>
+            <p>R$ 20,00 - Assista por 30 dias.</p>
+            <a href="https://wa.me/5511999999999?text=Olá, gostaria de comprar o Plano Mensal!" class="whatsapp-btn" target="_blank">Comprar Agora</a>
         </div>
     </div>
 
+    <div id="modalSemester" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modalSemester')">&times;</span>
+            <h3>Plano Semestral 📆</h3>
+            <p>R$ 100,00 - Assista por 6 meses.</p>
+            <a href="https://wa.me/5511999999999?text=Olá, gostaria de comprar o Plano Semestral!" class="whatsapp-btn" target="_blank">Comprar Agora</a>
+        </div>
+    </div>
+
+    <div id="modalAnnual" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('modalAnnual')">&times;</span>
+            <h3>Plano Anual 🗓️</h3>
+            <p>R$ 180,00 - Assista por 1 ano.</p>
+            <a href="https://wa.me/5511999999999?text=Olá, gostaria de comprar o Plano Anual!" class="whatsapp-btn" target="_blank">Comprar Agora</a>
+        </div>
+    </div>
+
+    <!-- Scripts -->
     <script>
-        function openModal(button) {
-            var plan = button.getAttribute('data-plan');
-            var modal = document.getElementById('planModal');
-            var title = document.getElementById('modalTitle');
-            var description = document.getElementById('modalDescription');
-            
-            title.textContent = 'Detalhes do Plano ' + plan;
-            description.textContent = 'Aqui estão mais detalhes sobre o plano ' + plan + '. Você pode adicionar informações específicas sobre os canais, a qualidade do streaming, etc.';
-            
-            modal.style.display = "block";
+        function openModal(plan) {
+            const modalId = `modal${plan.charAt(0).toUpperCase() + plan.slice(1)}`;
+            document.getElementById(modalId).style.display = "block";
         }
 
-        var span = document.getElementsByClassName("close")[0];
-        span.onclick = function() {
-            var modal = document.getElementById('planModal');
-            modal.style.display = "none";
+        function closeModal(modalId) {
+            document.getElementById(modalId).style.display = "none";
         }
+
         window.onclick = function(event) {
-            var modal = document.getElementById('planModal');
-            if (event.target == modal) {
-                modal.style.display = "none";
-            }
+            const modals = document.querySelectorAll('.modal');
+            modals.forEach(function(modal) {
+                if (event.target === modal) {
+                    modal.style.display = "none";
+                }
+            });
         }
+
+        document.querySelectorAll('.btn').forEach(button => {
+            button.addEventListener('click', function() {
+                openModal(this.getAttribute('data-plan'));
+            });
+        });
     </script>
 </body>
 </html>
