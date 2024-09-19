@@ -1,0 +1,261 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IPTV - Assista Tudo com Qualidade</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #f4f4f4;
+        }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 15px;
+            text-align: center;
+        }
+        header h1 {
+            margin: 0;
+        }
+        nav ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        nav ul li {
+            display: inline;
+            margin: 0 10px;
+        }
+        nav ul li a {
+            color: white;
+            text-decoration: none;
+        }
+        .hero {
+            background-color: #888;
+            background-size: cover;
+            background-position: center;
+            height: 50vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            text-align: center;
+        }
+        .hero h2 {
+            font-size: 2.5em;
+            margin: 0;
+        }
+        .hero p {
+            font-size: 1.2em;
+        }
+        .btn {
+            background-color: #ff6b00;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 1.1em;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        .btn:hover {
+            background-color: #e55b00;
+        }
+        .plans {
+            padding: 50px 20px;
+            text-align: center;
+        }
+        .plans h2 {
+            font-size: 2.2em;
+            margin-bottom: 30px;
+        }
+        .plans-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+        .plan {
+            background-color: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+            width: 90%;
+            max-width: 300px;
+            margin: 10px;
+            position: relative;
+        }
+        .plan h3 {
+            font-size: 1.5em;
+        }
+        .plan p {
+            font-size: 1.1em;
+        }
+        .plan .price {
+            font-size: 1.8em;
+            color: #ff6b00;
+        }
+        .plan .btn {
+            margin-top: 20px;
+        }
+        .advantages, .faq, .testimonials {
+            padding: 50px 20px;
+            background-color: white;
+            margin: 20px 0;
+            text-align: center;
+        }
+        footer {
+            background-color: #333;
+            color: white;
+            text-align: center;
+            padding: 20px 10px;
+        }
+        /* Modal */
+        .modal {
+            display: none;
+            position: fixed;
+            z-index: 1;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+            overflow: auto;
+            background-color: rgb(0,0,0);
+            background-color: rgba(0,0,0,0.4);
+            padding-top: 60px;
+        }
+        .modal-content {
+            background-color: #fefefe;
+            margin: 5% auto;
+            padding: 20px;
+            border: 1px solid #888;
+            width: 80%;
+            max-width: 600px;
+        }
+        .close {
+            color: #aaa;
+            float: right;
+            font-size: 28px;
+            font-weight: bold;
+        }
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+        @media (max-width: 768px) {
+            .hero h2 {
+                font-size: 2em;
+            }
+            .hero p {
+                font-size: 1em;
+            }
+            .plans h2 {
+                font-size: 1.8em;
+            }
+            .plan {
+                width: 100%;
+            }
+            .plan h3 {
+                font-size: 1.3em;
+            }
+            .plan p {
+                font-size: 1em;
+            }
+        }
+        @media (max-width: 480px) {
+            .hero h2 {
+                font-size: 1.5em;
+            }
+            .hero p {
+                font-size: 0.9em;
+            }
+            .plans h2 {
+                font-size: 1.5em;
+            }
+            .plan h3 {
+                font-size: 1.2em;
+            }
+            .plan p {
+                font-size: 0.9em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Cabeçalho -->
+    <header>
+        <h1>IPTV de Qualidade</h1>
+        <nav>
+            <ul>
+                <li><a href="#">Home</a></li>
+                <li><a href="#">Planos</a></li>
+                <li><a href="#">Suporte</a></li>
+                <li><a href="#">Contato</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Seção Principal (Hero Section) -->
+    <section class="hero">
+        <div>
+            <h2>Assista seus canais favoritos com IPTV</h2>
+            <p>Mais de 1000 canais em alta definição, sem cortes!</p>
+            <a href="#" class="btn" id="subscribeBtn">Assine Agora</a>
+        </div>
+    </section>
+
+    <!-- Seção de Planos -->
+    <section class="plans">
+        <h2>Nossos Planos</h2>
+        <div class="plans-container">
+            <div class="plan">
+                <h3>Plano Mensal</h3>
+                <p>Assista por 30 dias</p>
+                <p class="price">R$ 20,00</p>
+                <button class="btn" data-plan="Mensal" onclick="openModal(this)">Mais Detalhes</button>
+            </div>
+            <div class="plan">
+                <h3>Plano Semestral</h3>
+                <p>Assista por 6 meses</p>
+                <p class="price">R$ 100,00</p>
+                <button class="btn" data-plan="Semestral" onclick="openModal(this)">Mais Detalhes</button>
+            </div>
+            <div class="plan">
+                <h3>Plano Anual</h3>
+                <p>Assista por 1 ano</p>
+                <p class="price">R$ 180,00</p>
+                <button class="btn" data-plan="Anual" onclick="openModal(this)">Mais Detalhes</button>
+            </div>
+        </div>
+    </section>
+
+    <!-- Seção de Vantagens -->
+    <section class="advantages">
+        <h2>Por que Escolher IPTV?</h2>
+        <p>Compatível com Smart TVs, celulares e computadores. Sem cortes, sem problemas. Mais de 1000 canais disponíveis para você e sua família.</p>
+    </section>
+
+    <!-- Seção de Perguntas Frequentes (FAQ) -->
+    <section class="faq">
+        <h2>Perguntas Frequentes</h2>
+        <p><strong>O que é IPTV?</strong> IPTV é um sistema que transmite televisão pela internet.</p>
+        <p><strong>Como posso instalar?</strong> Após a assinatura, você recebe um tutorial detalhado para instalar em qualquer dispositivo.</p>
+        <p><strong>É legal?</strong> Sim, todos os nossos serviços são oferecidos dentro das normas.</p>
+    </section>
+
+    <!-- Depoimentos -->
+    <section class="testimonials">
+        <h2>O que nossos clientes dizem</h2>
+        <p>"Serviço incrível! Nunca mais tive problemas com travamentos durante o jogo do meu time!" - João S.</p>
+        <p>"Assisto filmes em HD sempre que quero. Super recomendo!" - Maria F.</p>
+    </section>
+
+    <!-- Rodapé -->
+    <footer>
+        <p>&copy; 2024 IPTV de Qualidade - Todos os direitos reservados.</p>
+        <p>Contato: suporte@iptvqualidade.com | Telefone
