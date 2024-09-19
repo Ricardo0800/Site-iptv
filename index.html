@@ -34,7 +34,7 @@
             text-decoration: none;
         }
         .hero {
-            background-color: #888;
+            background-image: url('https://via.placeholder.com/1600x600');
             background-size: cover;
             background-position: center;
             height: 50vh;
@@ -255,7 +255,72 @@
         <p>"Assisto filmes em HD sempre que quero. Super recomendo!" - Maria F.</p>
     </section>
 
+    <!-- Formulário de Compra -->
+    <section class="purchase">
+        <h2>Faça sua Assinatura</h2>
+        <form id="purchaseForm" action="processar-compra.php" method="POST">
+            <label for="name">Nome Completo:</label>
+            <input type="text" id="name" name="name" required>
+            
+            <label for="email">E-mail:</label>
+            <input type="email" id="email" name="email" required>
+
+            <label for="plan">Escolha o Plano:</label>
+            <select id="plan" name="plan" required>
+                <option value="Mensal">Mensal</option>
+                <option value="Semestral">Semestral</option>
+                <option value="Anual">Anual</option>
+            </select>
+            
+            <label for="payment">Método de Pagamento:</label>
+            <select id="payment" name="payment" required>
+                <option value="Cartão de Crédito">Cartão de Crédito</option>
+                <option value="Boleto Bancário">Boleto Bancário</option>
+                <option value="Transferência Bancária">Transferência Bancária</option>
+            </select>
+            
+            <button type="submit" class="btn">Assinar Agora</button>
+        </form>
+    </section>
+
     <!-- Rodapé -->
     <footer>
-        <p>&copy; 2024 IPTV de Qualidade - Todos os direitos reservados.</p>
-        <p>Contato: suporte@iptvqualidade.com | Telefone
+        <p>&copy; 2024 IPTV - Todos os direitos reservados.</p>
+    </footer>
+
+    <!-- Modal -->
+    <div id="planModal" class="modal">
+        <div class="modal-content">
+            <span class="close">&times;</span>
+            <h2 id="modalTitle">Detalhes do Plano</h2>
+            <p id="modalDescription">Aqui você pode adicionar mais informações sobre o plano selecionado.</p>
+        </div>
+    </div>
+
+    <script>
+        function openModal(button) {
+            var plan = button.getAttribute('data-plan');
+            var modal = document.getElementById('planModal');
+            var title = document.getElementById('modalTitle');
+            var description = document.getElementById('modalDescription');
+            
+            title.textContent = 'Detalhes do Plano ' + plan;
+            description.textContent = 'Aqui estão mais detalhes sobre o plano ' + plan + '. Você pode adicionar informações específicas sobre os canais, a qualidade do streaming, etc.';
+            
+            modal.style.display = "block";
+        }
+
+        var span = document.getElementsByClassName("close")[0];
+        span.onclick = function() {
+            var modal = document.getElementById('planModal');
+            modal.style.display = "none";
+        }
+        window.onclick = function(event) {
+            var modal = document.getElementById('planModal');
+            if (event.target == modal) {
+                modal.style.display = "none";
+            }
+        }
+    </script>
+</body>
+</html>
