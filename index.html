@@ -34,7 +34,7 @@
             text-decoration: none;
         }
         .hero {
-            background-image: url('https://via.placeholder.com/1600x600');
+            background-color: #333;
             background-size: cover;
             background-position: center;
             height: 50vh;
@@ -65,8 +65,22 @@
         .btn:hover {
             background-color: #e55b00;
         }
+        .buy-btn {
+            background-color: #28a745;
+            color: white;
+            padding: 10px 20px;
+            text-decoration: none;
+            font-size: 1.1em;
+            border-radius: 5px;
+            display: inline-block;
+            margin-top: 20px;
+            cursor: pointer;
+        }
+        .buy-btn:hover {
+            background-color: #218838;
+        }
         .whatsapp-btn {
-            background-color: #25D366; /* Cor do WhatsApp */
+            background-color: #25D366;
             color: white;
             padding: 10px 20px;
             text-decoration: none;
@@ -214,7 +228,6 @@
             <ul>
                 <li><a href="#hero">Home</a></li>
                 <li><a href="#plans">Planos</a></li>
-                <li><a href="#advantages">Suporte</a></li>
                 <li><a href="#faq">Contato</a></li>
             </ul>
         </nav>
@@ -225,7 +238,7 @@
         <div>
             <h2>Assista seus canais favoritos com IPTV</h2>
             <p>Mais de 1000 canais em alta definição, sem cortes!</p>
-            <a href="#" class="btn" id="subscribeBtn">Assine Agora</a>
+            <a href="https://wa.me/5511999999999" class="btn" id="subscribeBtn">Assine Agora</a>
         </div>
     </section>
 
@@ -254,83 +267,81 @@
         </div>
     </section>
 
-    <!-- Seção de Vantagens -->
-    <section id="advantages" class="advantages">
-        <h2>Por que Escolher IPTV?</h2>
-        <p>Compatível com Smart TVs, celulares e computadores. Sem cortes, sem problemas. Mais de 1000 canais disponíveis para você e sua família.</p>
-    </section>
-
     <!-- Seção de Perguntas Frequentes (FAQ) -->
     <section id="faq" class="faq">
-        <h2>Perguntas Frequentes</h2>
-        <p><strong>O que é IPTV?</strong> IPTV é um sistema que transmite televisão pela internet.</p>
-        <p><strong>Como posso pagar?</strong> Aceitamos pagamentos via cartão de crédito, boleto e transferência bancária.</p>
+        <h2>Contato</h2>
+        <p>Entre em contato conosco para mais informações sobre nossos serviços:</p>
+        <p><strong>WhatsApp:</strong> <a href="https://wa.me/5511999999999" target="_blank" class="whatsapp-btn">Clique aqui para falar no WhatsApp</a></p>
+        <p><strong>Email:</strong> atendimento@iptvqualidade.com.br</p>
     </section>
 
     <!-- Seção de Depoimentos -->
     <section id="testimonials" class="testimonials">
-        <h2>Depoimentos</h2>
-        <p><strong>João:</strong> "A melhor IPTV que já usei! Imagem excelente e muito conteúdo."</p>
-        <p><strong>Maria:</strong> "Muito satisfeito com o serviço. Recomendo a todos!"</p>
+        <h2>O que nossos clientes dizem</h2>
+        <p>"Serviço excelente, qualidade impecável! Recomendo a todos."</p>
+        <p>"Melhor IPTV que já assinei, canais em HD e sem interrupções."</p>
     </section>
 
     <!-- Rodapé -->
     <footer>
-        <p>&copy; 2024 IPTV - Todos os direitos reservados</p>
+        <p>© 2024 IPTV Qualidade. Todos os direitos reservados.</p>
     </footer>
 
-    <!-- Modais -->
+    <!-- Modals -->
     <div id="modalMonthly" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('modalMonthly')">&times;</span>
             <h3>Plano Mensal 📅</h3>
-            <p>R$ 20,00 - Assista por 30 dias.</p>
-            <a href="https://wa.me/5511999999999?text=Olá, gostaria de comprar o Plano Mensal!" class="whatsapp-btn" target="_blank">Comprar Agora</a>
+            <p>R$ 20,00 - Assista por 30 dias com canais em HD e suporte exclusivo via WhatsApp.</p>
+            <a href="https://wa.me/5511999999999" class="buy-btn">Comprar Agora</a>
         </div>
     </div>
-
     <div id="modalSemester" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('modalSemester')">&times;</span>
             <h3>Plano Semestral 📆</h3>
-            <p>R$ 100,00 - Assista por 6 meses.</p>
-            <a href="https://wa.me/5511999999999?text=Olá, gostaria de comprar o Plano Semestral!" class="whatsapp-btn" target="_blank">Comprar Agora</a>
+            <p>R$ 100,00 - 6 meses de diversão sem cortes, mais de 1000 canais à disposição!</p>
+            <a href="https://wa.me/5511999999999" class="buy-btn">Comprar Agora</a>
         </div>
     </div>
-
     <div id="modalAnnual" class="modal">
         <div class="modal-content">
             <span class="close" onclick="closeModal('modalAnnual')">&times;</span>
             <h3>Plano Anual 🗓️</h3>
-            <p>R$ 180,00 - Assista por 1 ano.</p>
-            <a href="https://wa.me/5511999999999?text=Olá, gostaria de comprar o Plano Anual!" class="whatsapp-btn" target="_blank">Comprar Agora</a>
+            <p>R$ 180,00 - Aproveite 1 ano de conteúdo com qualidade HD e suporte prioritário!</p>
+            <a href="https://wa.me/5511999999999" class="buy-btn">Comprar Agora</a>
         </div>
     </div>
 
     <!-- Scripts -->
     <script>
-        function openModal(plan) {
-            const modalId = `modal${plan.charAt(0).toUpperCase() + plan.slice(1)}`;
-            document.getElementById(modalId).style.display = "block";
+        document.querySelectorAll('.btn').forEach(function(button) {
+            button.addEventListener('click', function() {
+                const plan = this.getAttribute('data-plan');
+                openModal('modal' + plan);
+            });
+        });
+
+        function openModal(modalId) {
+            document.getElementById(modalId).style.display = 'block';
         }
 
         function closeModal(modalId) {
-            document.getElementById(modalId).style.display = "none";
+            document.getElementById(modalId).style.display = 'none';
         }
 
         window.onclick = function(event) {
-            const modals = document.querySelectorAll('.modal');
+            const modals = ['modalMonthly', 'modalSemester', 'modalAnnual'];
             modals.forEach(function(modal) {
-                if (event.target === modal) {
-                    modal.style.display = "none";
+                if (event.target == document.getElementById(modal)) {
+                    document.getElementById(modal).style.display = 'none';
                 }
             });
         }
 
-        document.querySelectorAll('.btn').forEach(button => {
-            button.addEventListener('click', function() {
-                openModal(this.getAttribute('data-plan'));
-            });
+        // Redirecionar botão "Assine Agora" no hero para o WhatsApp
+        document.getElementById('subscribeBtn').addEventListener('click', function() {
+            window.location.href = "https://wa.me/5511999999999";
         });
     </script>
 </body>
